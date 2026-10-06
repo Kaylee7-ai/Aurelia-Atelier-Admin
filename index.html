@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17324D">
+  <meta name="description" content="Aurelia Atelier private store management dashboard.">
+  <title>Aurelia Atelier | Store Manager</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="supabase-config.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div id="loginView" class="login-view">
+    <div class="login-art" aria-hidden="true"><div class="art-ring"></div><div class="art-line"></div><div class="art-dot"></div></div>
+    <div class="login-panel">
+      <p class="eyebrow">PRIVATE STORE MANAGER</p>
+      <h1>Welcome back<br><em>to the atelier.</em></h1>
+      <p class="intro">Manage your products, stock, orders and store details from one private workspace.</p>
+      <form id="loginForm" class="stack">
+        <label>Email<input id="loginEmail" type="email" autocomplete="username" required placeholder="Owner email"></label>
+        <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Password"></label>
+        <button class="primary" type="submit">Sign in <span>→</span></button>
+        <div id="loginResult" class="message" role="alert"></div>
+      </form>
+      <a class="back-store" href="../">← View customer store</a>
+    </div>
+  </div>
+
+  <div id="appView" class="app-view hidden">
+    <header class="manager-header">
+      <div><a class="wordmark" href="../">AURELIA <span>ATELIER</span></a><span class="manager-label">STORE MANAGER</span></div>
+      <div class="header-user"><span id="ownerEmail"></span><button id="logout" class="quiet">Log out</button></div>
+    </header>
+
+    <main class="manager-main">
+      <section class="manager-hero">
+        <div><p class="eyebrow">PRIVATE WORKSPACE</p><h2 id="storeName">Your store.</h2><p class="muted">Keep the storefront current without touching the website code.</p></div>
+        <a class="view-store" href="../" target="_blank" rel="noreferrer">View storefront ↗</a>
+      </section>
+
+      <section class="metrics" id="metrics"></section>
+
+      <nav class="tabs" aria-label="Store management">
+        <button class="active" data-tab="products">Products</button>
+        <button data-tab="orders">Orders</button>
+        <button data-tab="settings">Store settings</button>
+      </nav>
+
+      <section id="productsTab" class="tab-panel"></section>
+      <section id="ordersTab" class="tab-panel hidden"></section>
+      <section id="settingsTab" class="tab-panel hidden"></section>
+    </main>
+  </div>
+</body>
+</html>
